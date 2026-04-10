@@ -214,28 +214,37 @@ For each number, check if its complement (target - num) has been seen before. Ha
                 {/* Examples */}
                 <div>
                   <h3 className="text-white mb-3" style={{ fontSize: '14px', fontWeight: 700 }}>Examples</h3>
-                  {problem.examples.map((ex, i) => (
+                  {problem.examples && problem.examples.length > 0 ? (
+                    problem.examples.map((ex, i) => (
+                      <div
+                        key={i}
+                        className="rounded-xl p-4 mb-3"
+                        style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)' }}
+                      >
+                        <div className="mb-2">
+                          <span style={{ fontSize: '10px', fontWeight: 700, color: '#4a5568', textTransform: 'uppercase', letterSpacing: '0.08em' }}>Input</span>
+                          <code className="block mt-1 font-mono" style={{ fontSize: '12px', color: '#22c55e' }}>{ex.input}</code>
+                        </div>
+                        <div className="mb-2">
+                          <span style={{ fontSize: '10px', fontWeight: 700, color: '#4a5568', textTransform: 'uppercase', letterSpacing: '0.08em' }}>Output</span>
+                          <code className="block mt-1 font-mono" style={{ fontSize: '12px', color: '#00d4ff' }}>{ex.output}</code>
+                        </div>
+                        {ex.explanation && (
+                          <div>
+                            <span style={{ fontSize: '10px', fontWeight: 700, color: '#4a5568', textTransform: 'uppercase', letterSpacing: '0.08em' }}>Explanation</span>
+                            <p className="mt-1" style={{ fontSize: '12px', color: '#6b7280', lineHeight: 1.6 }}>{ex.explanation}</p>
+                          </div>
+                        )}
+                      </div>
+                    ))
+                  ) : (
                     <div
-                      key={i}
-                      className="rounded-xl p-4 mb-3"
+                      className="rounded-xl p-4"
                       style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)' }}
                     >
-                      <div className="mb-2">
-                        <span style={{ fontSize: '10px', fontWeight: 700, color: '#4a5568', textTransform: 'uppercase', letterSpacing: '0.08em' }}>Input</span>
-                        <code className="block mt-1 font-mono" style={{ fontSize: '12px', color: '#22c55e' }}>{ex.input}</code>
-                      </div>
-                      <div className="mb-2">
-                        <span style={{ fontSize: '10px', fontWeight: 700, color: '#4a5568', textTransform: 'uppercase', letterSpacing: '0.08em' }}>Output</span>
-                        <code className="block mt-1 font-mono" style={{ fontSize: '12px', color: '#00d4ff' }}>{ex.output}</code>
-                      </div>
-                      {ex.explanation && (
-                        <div>
-                          <span style={{ fontSize: '10px', fontWeight: 700, color: '#4a5568', textTransform: 'uppercase', letterSpacing: '0.08em' }}>Explanation</span>
-                          <p className="mt-1" style={{ fontSize: '12px', color: '#6b7280', lineHeight: 1.6 }}>{ex.explanation}</p>
-                        </div>
-                      )}
+                      <p style={{ fontSize: '12px', color: '#6b7280' }}>No examples are available for this problem yet.</p>
                     </div>
-                  ))}
+                  )}
                 </div>
 
                 {/* Constraints */}
